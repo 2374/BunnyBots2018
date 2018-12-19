@@ -2,28 +2,15 @@ package org.usfirst.frc.team2374.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 
-/**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
- */
 public class OI {
+	
 	private Joystick driver;
-//	private JoystickButton leftBumper;
-//	private JoystickButton rightBumper;
-//	private JoystickButton buttonY;
 	
 	// This value requires extensive testing, it may not be used at all
 	private static final double DEAD_ZONE_VAL = 0.05;
 
 	public OI() {
 		driver = new Joystick(RobotMap.driverJoy);
-//		leftBumper = new JoystickButton(driver, RobotMap.rsLeftBumper);
-//		rightBumper = new JoystickButton(driver, RobotMap.rsLeftBumper);
-//		buttonY = new JoystickButton(driver, RobotMap.rsButtonY);
-		
-//		leftBumper.whenPressed(new EjectorUp(Ejector.ELEVATE_TIMEOUT_S));
-//		rightBumper.whenPressed(new EjectorDown(Ejector.ELEVATE_TIMEOUT_S));
-//		buttonY.whenPressed(new KickerRotation(Ejector.KICKER_TIMEOUT_S));
 	}
 
 	public double getDriverLeftY() { return deadZone(driver.getRawAxis(RobotMap.rsLeftAxisY), DEAD_ZONE_VAL); }

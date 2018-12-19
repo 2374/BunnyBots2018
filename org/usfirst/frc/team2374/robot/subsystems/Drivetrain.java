@@ -22,7 +22,7 @@ public class Drivetrain extends Subsystem {
 	
 	// keep in mind TalonSRX has capability to limit max amperage (look up
 	// CTRE Phoenix documentation)
-	private TalonSRX middleLeft, middleRight, frontLeft, frontRight /*, backLeft, backRight */;
+	private TalonSRX middleLeft, middleRight, frontLeft, frontRight , backLeft, backRight;
 	// if these don't work look up CTRE magnetic encoders (the ones that go on a talon because duck everything)
 	private Encoder leftEncoder, rightEncoder;
 	private TwoEncoderPIDSource driveIn;
@@ -41,14 +41,14 @@ public class Drivetrain extends Subsystem {
 		middleRight = new TalonSRX(RobotMap.TALON_DRIVE_MASTER_RIGHT);
 		frontLeft = new TalonSRX(RobotMap.TALON_DRIVE_FRONT_LEFT);
 		frontRight = new TalonSRX(RobotMap.TALON_DRIVE_FRONT_RIGHT);
-//		backLeft = new TalonSRX(RobotMap.TALON_DRIVE_BACK_LEFT);
-//		backRight = new TalonSRX(RobotMap.TALON_DRIVE_BACK_RIGHT);
+		backLeft = new TalonSRX(RobotMap.TALON_DRIVE_BACK_LEFT);
+		backRight = new TalonSRX(RobotMap.TALON_DRIVE_BACK_RIGHT);
 		
 		// set front and back motors to follow center motors
  		frontLeft.follow(middleLeft);
-//		backLeft.follow(middleLeft);
+		backLeft.follow(middleLeft);
 		frontRight.follow(middleRight);
-//		backRight.follow(middleRight);
+		backRight.follow(middleRight);
 		
 		// you just always need to do this
 //		T middleLeft.setInverted(true);
