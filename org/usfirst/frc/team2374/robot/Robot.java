@@ -1,4 +1,3 @@
-
 package org.usfirst.frc.team2374.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -8,6 +7,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team2374.robot.commands.TimedAuto;
 import org.usfirst.frc.team2374.robot.subsystems.Belt;
 import org.usfirst.frc.team2374.robot.subsystems.Drivetrain;
 
@@ -25,6 +25,7 @@ public class Robot extends IterativeRobot {
 		drive = new Drivetrain();
 		belt = new Belt();
 		oi = new OI();
+		chooser.addDefault("Default Auto", new TimedAuto(10));
 		SmartDashboard.putData("Auto mode", chooser);
 	}
 
@@ -47,7 +48,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void autonomousPeriodic() {
-		drive.tankDrive(oi.getDriverLeftY(), oi.getDriverRightY());
+		belt.move(1.0, 1);
 	}
 
 	@Override
